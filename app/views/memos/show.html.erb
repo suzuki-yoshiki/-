@@ -27,6 +27,7 @@
       <%= link_to "編集", edit_user_memo_path, class: "btn btn-lg btn-success" %>
       <%= link_to "削除", user_memo_path, method: :delete, class: "btn btn-lg btn-danger",
           data: { confirm: "#{@memo.title}を削除してもよろしいですか？"} %>
+      <%= link_to "メモ一覧", user_memos_path(@current_user), class: "btn btn-lg btn-primary" %>
     </div>    
 　</div>
 </div>

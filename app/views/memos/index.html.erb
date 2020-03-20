@@ -10,17 +10,22 @@
       <thead>
         <tr>
           <th>名前</th>
+          <th>作成日</th>
         </tr>
       </thead>
+      <tbody>
       <% @memos.each do |memo| %>
       <tr>
-        <td><%= link_to memo.title, user_memo_path(@user, memo) %></td>
+        <td><font size = "+1"><%= link_to memo.title, user_memo_path(@user, memo) %></font></td>
+        <td><%= l(memo.created_at, format: :long) %></td>
         <td><%= link_to "削除", user_memo_path(@user, memo), method: :delete,
                 data: { confirm: "#{@memo}を削除してよろしいですか？" },
                 class: "btn btn-danger" %>
         </td>
       </tr>
+      
       <% end %>
     </table>
+    </tbody>
     <%= will_paginate %>
   </div>

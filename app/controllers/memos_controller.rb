@@ -1,6 +1,7 @@
 class MemosController < ApplicationController
   before_action :set_user
   before_action :set_memo, only: [:show, :edit, :update, :destroy]
+  before_action :current_user
   
   def index
     @memos = Memo.all

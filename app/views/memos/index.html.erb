@@ -1,0 +1,26 @@
+<% provide(:title, 'Index Memo') %>
+<h1><%= @user.name %>のメモ一覧</h1>
+
+
+<div class="row">
+  <div class="col-md-10 col-md-offset-2">
+    <%= will_paginate %>
+    <%= link_to "メモの追加", new_user_memo_path(@user), class: "btn btn-lg btn-primary pull-right" %>
+    <table class="table table-condensed table-hover" id="table-users">
+      <thead>
+        <tr>
+          <th>名前</th>
+        </tr>
+      </thead>
+      <% @memos.each do |memo| %>
+      <tr>
+        <td><%= link_to memo.title, user_memo_path(@user, memo) %></td>
+        <td><%= link_to "削除", user_memo_path(@user, memo), method: :delete,
+                data: { confirm: "#{@memo}を削除してよろしいですか？" },
+                class: "btn btn-danger" %>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+    <%= will_paginate %>
+  </div>

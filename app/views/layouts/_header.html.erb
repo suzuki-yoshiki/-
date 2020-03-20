@@ -12,7 +12,9 @@
             </a>
             <ul class="dropdown-menu">
               <li><%= link_to "My アカウント", current_user %></li>
-              <li><%= link_to "編集", edit_user_path(current_user) %></li>
+              <li><%= link_to "メモ一覧", user_memos_path(current_user) %></li>
+              <li><%= link_to "メモ作成", new_user_memo_path(current_user) %></li>
+              <li><%= link_to "My アカウント編集", edit_user_path(current_user) %></li>
               <li class="divider"></li>
               <li>
                 <%= link_to "ログアウト", logout_path, method: :delete %>
